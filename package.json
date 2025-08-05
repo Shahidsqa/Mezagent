@@ -1,0 +1,26 @@
+{
+  "name": "mezagent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "cy:run_spec": "npx cypress run --spec 'cypress/e2e/CompanyAds.cy.js' --headed",
+     "cy:run_browser": "concurrently \"npm run cy:run_spec -- --browser chrome\" \"npm run cy:run_spec -- --browser firefox\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "cypress": "^14.3.2",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-iframe": "^1.0.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-real-events": "^1.14.0",
+    "mochawesome": "^7.1.3"
+  },
+  "dependencies": {
+    "imap-simple": "^5.1.0",
+    "mailparser": "^3.7.2"
+  }
+}
