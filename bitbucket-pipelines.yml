@@ -1,0 +1,21 @@
+image: cypress/included
+
+pipelines:
+  custom:
+    run-cypress-tests:
+      - step:
+          name: Install Dependencies
+          caches:
+            - node
+          script:
+            - npm install
+      - step:
+          name: Run Cypress Tests
+          script:
+            - export XDG_RUNTIME_DIR=/tmp/runtime-$USER
+            - mkdir -p $XDG_RUNTIME_DIR
+            - npm install mochawesome
+            - npx cypress run --browser chrome
+          artifacts:
+            - cypress/screenshots/**
+            - cypress/reports/**/*.json
